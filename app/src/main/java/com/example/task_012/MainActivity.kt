@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
-    val notes: MutableList<User> = mutableListOf()
+    val users: MutableList<User> = mutableListOf()
 
     private lateinit var toolbarMain: Toolbar
 
@@ -35,13 +35,13 @@ class MainActivity : AppCompatActivity() {
         ageET = findViewById(R.id.ageET)
         saveBTN = findViewById(R.id.saveBTN)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, notes)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, users)
         listViewLV.adapter = adapter
 
         saveBTN.setOnClickListener{
             if (nameET.text.toString() != "" || ageET.text.toString() != "")
             {
-                notes.add(User(nameET.text.toString(), ageET.text.toString().toInt()))
+                users.add(User(nameET.text.toString(), ageET.text.toString().toInt()))
                 adapter.notifyDataSetChanged()
                 nameET.text.clear()
                 ageET.text.clear()

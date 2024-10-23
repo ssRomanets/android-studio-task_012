@@ -12,16 +12,16 @@ class MyDialog {
             AdapterView.OnItemClickListener {parent, v, position, id ->
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Внимание!")
-                    .setMessage("Удалить заметку?")
+                    .setMessage("Удалить пользователя?")
                     .setCancelable(true)
                     .setNegativeButton("Нет") {
                             dialog, which -> dialog.cancel()
                     }
                     .setPositiveButton("Да") {
                             dialog, which ->
-                        val note = adapter.getItem(position)
-                        adapter.remove(note)
-                        Toast.makeText(context, "Пользователь удален: $note", Toast.LENGTH_LONG).show()
+                        val user = adapter.getItem(position)
+                        adapter.remove(user)
+                        Toast.makeText(context, "Пользователь удален: $user", Toast.LENGTH_LONG).show()
                     }.create()
                 builder.show()
             }
